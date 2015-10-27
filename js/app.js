@@ -9,6 +9,7 @@
 	app.controller('reviewController', function(){
 		this.review = {};
 		this.addReview = function(product){
+			//console.log(product);
 			product.reviews.push(this.review);
 			
 			/* Clears out the review so the form resets */

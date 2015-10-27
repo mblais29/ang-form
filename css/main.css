@@ -1,3 +1,45 @@
-img{
+.container{
+	display: block; 
+	width: 100%
+}
+
+.col-lg-8{
+	text-align: center; 
+	width: 100%
+}
+
+.col-md-4{
 	width: 100%;
+}
+
+img{
+	width: 50%;
+}
+
+form{
+	padding: 5% 0;
+}
+
+textarea{
+	width: 300px;
+    height: 150px;
+    margin-top:15px;
+    border: none;
+    outline: none;
+	-webkit-box-shadow: inset -2px -2px 52px -14px rgba(0,0,0,0.48);
+	-moz-box-shadow: inset -2px -2px 52px -14px rgba(0,0,0,0.48);
+	box-shadow: inset -2px -2px 52px -14px rgba(0,0,0,0.48);
+}
+
+input[type=email]{
+	padding: 10px;
+  	border: solid 1px #dcdcdc;
+  	transition: box-shadow 0.3s, border 0.3s;
+  	margin-bottom: 15px;
+}
+
+input[type=email]:focus {
+	outline: none;
+  	border: solid 1px #707070;
+  	box-shadow: 0 0 5px 1px #969696;
 }

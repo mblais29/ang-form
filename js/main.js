@@ -1,4 +1,4 @@
 $( document ).ready(function() {
-   	$('.one').attr('selected','selected');
+   //	$('.one').attr('selected','selected');
 });
  

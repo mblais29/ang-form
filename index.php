@@ -26,8 +26,10 @@
 		  		<div class="row-fluid text-center">
 		  			<div class="col-md-4">
 			  			<img ng-src="{{product.img[0].full}}"/>
-				  		<h2>{{product.type}}</h2>
-				  		<h3>{{product.price}}</h3>
+			  			<!--- Use a custom directive instead of h2 or h3 in app.js uses iphone-title.html file --->
+			  			<iphone-title></iphone-title> 
+				  		<!---<h2>{{product.type}}</h2>
+				  		<h3>{{product.price}}</h3>--->
 				  		<blockquote ng-repeat="review in product.reviews">
 			  				<b>Stars: {{review.stars}}</b></br>
 			  				{{review.body}}</br>
@@ -36,26 +38,33 @@
 			  		</div>
 				</div>	
 			<div class="col-lg-8">
-			  	<form class="form-signin" name="reviewForm" ng-controller="reviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+			  	<form class="form-signin" name="reviewForm" ng-controller="reviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
 			  		<blockquote>
 						<b>Stars: {{reviewCtrl.review.stars}}</b></br>
 						Preview: {{reviewCtrl.review.body}}</br>
 						Author: {{reviewCtrl.review.author}}</br>
 					</blockquote>
 					<div>
-				  		<select class="btn btn-default dropdown-toggle" ng-model="reviewCtrl.review.stars">
-							<option value="1" class="one">1 Star</option>
+				  		<select class="btn btn-default dropdown-toggle" ng-model="reviewCtrl.review.stars" required>
+							<option value="" disabled selected>Rate</option>
+							<option value="1">1 Star</option>
 							<option value="2">2 Stars</option>
 							<option value="3">3 Stars</option>
 							<option value="4">4 Stars</option>
 							<option value="5">5 Stars</option>
 						</select></br>
 					</div>
-					<textarea ng-model="reviewCtrl.review.body" placeholder="Describe the iPhone here..."></textarea></br>
-					<label>by:</label></br>
-					<input type="email" ng-model="reviewCtrl.review.author" placeholder="Enter email here..." /></br>
-					<input type="submit" value="Submit" class="btn btn-primary" />	  		
+					<textarea ng-model="reviewCtrl.review.body" placeholder="Describe the iPhone here..." required></textarea></br>
+					<label>by:</label></b>
+					<input type="email" ng-model="reviewCtrl.review.author" placeholder="Enter email here..." required /></br>
+					
+					<!---
+						/* Shows if the user's input is valid */
+					<div>reveiwForm is {{reviewForm.$valid}}</div>
+					--->
+					<input type="submit" value="Submit" name="submit" class="btn btn-primary" ng-click="check_credentials()" />	
 			  	</form>
+			  	
 		   	</div>
 		   </div>
   		</div>

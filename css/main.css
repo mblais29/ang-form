@@ -24,7 +24,6 @@ textarea{
 	width: 300px;
     height: 150px;
     margin-top:15px;
-    border: none;
     outline: none;
 	-webkit-box-shadow: inset -2px -2px 52px -14px rgba(0,0,0,0.48);
 	-moz-box-shadow: inset -2px -2px 52px -14px rgba(0,0,0,0.48);
@@ -33,13 +32,20 @@ textarea{
 
 input[type=email]{
 	padding: 10px;
-  	border: solid 1px #dcdcdc;
-  	transition: box-shadow 0.3s, border 0.3s;
-  	margin-bottom: 15px;
+  	margin: 15px 0;
 }
 
 input[type=email]:focus {
 	outline: none;
-  	border: solid 1px #707070;
-  	box-shadow: 0 0 5px 1px #969696;
+}
+
+/* If textarea and email is valid (.ng-valid.ng-dirty) turn green else turn red (.ng-invalid.ng-dirty)*/
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty{
+	border-color: #FA787E;
+	box-shadow: 0 0 5px 1px #FA787E;
+}
+
+input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{
+	border-color: #78FA89;
+	box-shadow: 0 0 5px 1px #78FA89;
 }
